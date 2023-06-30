@@ -9,7 +9,7 @@ from .models import Company
 
 def pizza_list(request):
     if request.method == 'POST':
-        search_query = request.POST.get('search_query')
+        search_query = request.GET.get('search_query')
         pizzas = Pizza.objects.filter(pizza_type__icontains=search_query)
     else:
         search_query = ''
