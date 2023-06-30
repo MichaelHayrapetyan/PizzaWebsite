@@ -3,6 +3,8 @@ from .models import Pizza
 from .forms import PizzaForm
 from django.core.paginator import Paginator
 from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from .models import Company
 
 
 def pizza_list(request):
@@ -49,3 +51,4 @@ def delete_pizza(request, pizza_id):
         pizza.delete()
         return redirect('pizza:pizza_list')
     return render(request, 'pizza/delete_pizza.html', {'pizza': pizza})
+

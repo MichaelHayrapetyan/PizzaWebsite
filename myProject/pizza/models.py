@@ -19,6 +19,7 @@ class Pizza(models.Model):
     dough = models.CharField(max_length=100, choices=PIZZA_TYPE_CHOICES)
     image = models.ImageField(upload_to='pizza_images')
     description = models.TextField()
+    price = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
 
     def __str__(self):
         return f"{self.company.name} - {self.pizza_type} Pizza"
